@@ -1,0 +1,75 @@
+type Mutation {
+    addCustomer( customer: CustomerInput ): Customer
+}
+
+input CustomerInput {
+    firstName: String
+    lastName: String
+}
+
+type Query {
+    albums(titleFilter: String): [Album]
+    categories: [ProductCategory]
+    products: [Product]
+    offerings: [Offering]
+    customers(nameContains:String): [Customer]
+}
+
+type Album {
+    title: String
+    artist: String
+    recordNo: Int
+}
+
+
+type Customer {
+    id: Int
+    firstName: String
+    lastName: String
+##    homeAddress: HomeAddress
+}
+
+"""
+type HomeAddress {
+    street: String
+    zipCode: String
+    city: String
+    county: String
+    state: String
+    country: String
+}
+
+
+type BasketEntity {
+    id: Int
+    basket: Basket
+    offering: Offering
+}
+
+type Basket {
+    id : Int
+    entities: [BasketEntity]
+    customer: Customer
+}
+"""
+
+type Offering {
+    id: Int
+    price: Int
+    name: String
+    product: Product
+}
+
+type Product {
+    id: Int
+    name: String
+    description: String
+    categories: [ProductCategory]
+    offerings: [Offering]
+}
+
+type ProductCategory {
+    id: Int
+    name: String
+    products: [Product]
+}

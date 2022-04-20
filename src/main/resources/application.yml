@@ -1,0 +1,22 @@
+
+debug: false
+
+spring:
+  application:
+    name: "Tobias Spring App!"
+
+  graphql:
+    schema:
+      printer:
+        enabled: true
+
+server:
+  port: 8081
+
+dgs:
+  graphql:
+    schema-locations: "classpath*:schema/**/*.graphql*"
+
+    graphiql:
+      enabled: true
+      path: "/graphiql"
