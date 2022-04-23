@@ -13,6 +13,7 @@ type Query {
     products: [Product]
     offerings: [Offering]
     customers(nameContains:String): [Customer]
+    addresses(contains:String): [Address]
 }
 
 type Album {
@@ -26,20 +27,19 @@ type Customer {
     id: Int
     firstName: String
     lastName: String
-##    homeAddress: HomeAddress
+    address: Address
 }
 
-"""
-type HomeAddress {
+
+type Address {
+    id: Int
     street: String
     zipCode: String
     city: String
-    county: String
-    state: String
     country: String
 }
 
-
+"""
 type BasketEntity {
     id: Int
     basket: Basket
